@@ -42,6 +42,8 @@ struct ContentView: View {
         
     }
     
+    @FocusState var isFocused: Bool
+    
     var body: some View {
         NavigationStack {
             Form {
@@ -53,6 +55,8 @@ struct ContentView: View {
                         }
                     } label: {
                         TextField("Temperature", value: $tempValue.animation(), format: .number)
+                            .keyboardType(.numberPad)
+                            .focused($isFocused)
                     }
 
                 }
@@ -74,6 +78,13 @@ struct ContentView: View {
                 }
             }
             .navigationTitle("TempSwitch")
+            .toolbar {
+                if isFocused {
+                    Button("Done") {
+                        isFocused = false
+                    }
+                }
+            }
         }
     }
 }
