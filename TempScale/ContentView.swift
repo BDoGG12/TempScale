@@ -77,7 +77,7 @@ struct ContentView: View {
                     Text("\(convertedTemp) \(selectedConversionUnit)")
                 }
             }
-            .navigationTitle("TempSwitch")
+            .navigationTitle("Temp Scale")
             .toolbar {
                 if isFocused {
                     Button("Done") {
